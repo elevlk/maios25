@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Password Page</title>
+</head>
+<body>
+  <h1>Enter Password</h1>
+  <input type="password" id="passwordInput" placeholder="Password">
+  <button onclick="checkPassword()">Submit</button>
+
+  <script>
+    async function sha256(str) {
+      const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(str));
+      return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
+    }
+
+    async function checkPassword() {
+      const input = document.getElementById("passwordInput").value;
+      const hash = await sha256(input);
+      const correctHash = "ef92b778bafe771e89245b89ecbc08a44a4e166c06659911881f383d4473e94f"; // your hash
+
+      if (hash === correctHash) {
+        window.location.href = "success.html";
+      } else {
+        alert("Incorrect password.");
+      }
+    }
+  </script>
+</body>
+</html>
