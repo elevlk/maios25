@@ -1,0 +1,22 @@
+/* Center the paragraph in the exact center of the page */
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Style the paragraph itself */
+p {
+  width: 200px;              /* Fixed width to form a square frame */
+  height: 200px;             /* Fixed height to match width */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: lightblue;  /* Background color */
+  color: darkblue;              /* Text color */
+  padding: 10px;
+  box-sizing: border-box;
+}
